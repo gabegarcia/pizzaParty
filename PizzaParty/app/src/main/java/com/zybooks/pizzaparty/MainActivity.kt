@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 /**
  * CS 134
  * Lab 1
@@ -8,8 +8,7 @@
  *
  */
 
-=======
->>>>>>> origin/main
+
 package com.zybooks.pizzaparty
 
 import android.os.Bundle
