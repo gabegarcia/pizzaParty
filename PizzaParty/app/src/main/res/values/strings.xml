@@ -5,7 +5,7 @@
     <string name="light">Somewhat Hungry</string>
     <string name="medium">Pretty Hungry</string>
     <string name="ravenous">Starving</string>
-    <string name="total_pizzas">Total pizzas you will need:</string>
+    <string name="total_pizzas">Total pizzas you\'ll need:</string>
     <string name="calculate">Calculate Number of Pizzas</string>
 
 </resources>

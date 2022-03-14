@@ -75,6 +75,6 @@ class MainActivity : AppCompatActivity() {
 
         // Calculate and show the number of pizzas needed
         val totalPizzas = ceil(numAttend * slicesPerPerson / SLICES_PER_PIZZA.toDouble()).toInt()
-        numPizzasTextView.text = "Total pizzas: $totalPizzas"
+        numPizzasTextView.text = "Total pizzas you'll need: $totalPizzas"
     }
 }
