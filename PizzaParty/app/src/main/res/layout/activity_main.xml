@@ -19,7 +19,8 @@
         android:text="@string/numPeople"
         android:textSize="@dimen/label_text_size"
         android:labelFor="@id/num_attend_edit_text"
-        android:background="@color/background_black"/>
+        android:background="@color/background_black"
+        android:freezesText="true" />
 
     <EditText
         android:id="@+id/num_attend_edit_text"
