@@ -1,6 +1,23 @@
 package com.zybooks.comic_collection
 
-class NewComic(newTitle: String, newSeries: String) {
+import android.content.Context
+
+class NewComic(var newTitle: String = "No Title", var newSeries: Int = 0) {
+
     var title: String = newTitle
-    var series: String = newSeries
+        set(value){
+            field = value
+        }
+        get(){
+            return title
+        }
+    var series: Int = newSeries
+        set(value){
+            field = value
+        }
+    get(){
+        return series
+    }
+
+
 }
