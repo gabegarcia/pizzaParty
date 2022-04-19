@@ -9,13 +9,11 @@ import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
     private var newComic = NewComic()
-    private var newComicCollection = ComicCollection(newComic)
+    private var newComicCollection = ComicCollection()
     //private lateinit var itemEditText: EditText
     private lateinit var comicTitle: EditText
     private lateinit var comicSeries: EditText
-
     private lateinit var listTextView: TextView
-
     private var series: Int  = 0
     lateinit var title: String
 
@@ -31,19 +29,19 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.clear_button).setOnClickListener { clearButtonClick() }
     }
 
-    override fun onResume() {
+   /* override fun onResume() {
         super.onResume()
 
         // Attempt to load a previously saved list
         newComicCollection.readFromFile()
         displayList()
-    }
+    }*/
 
     override fun onPause() {
         super.onPause()
 
         // Save list for later
-        newComicCollection.saveToFile()
+        newComicCollection.saveToFile(this)
     }
 
     private fun addButtonClick() {

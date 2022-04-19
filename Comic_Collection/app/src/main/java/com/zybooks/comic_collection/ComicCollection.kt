@@ -6,14 +6,14 @@ import java.util.*
 
 const val FILENAME = "MyComicCollection.txt"
 
-class ComicCollection (myNewComic: NewComic) {
+class ComicCollection () {
 
-    var comic: NewComic = myNewComic
+   // var comic: NewComic = myNewComic
 
     private var comicList: MutableList<NewComic> = mutableListOf()
 
-    fun addItem(newComic: NewComic) {
-        comicList.add(comic)
+    fun addItem(myNewComic: NewComic) {
+        comicList.add(myNewComic)
     }
 
     fun getItems(): List<NewComic> {
@@ -24,25 +24,25 @@ class ComicCollection (myNewComic: NewComic) {
         comicList.clear()
     }
 
-    fun saveToFile() {
+    fun saveToFile(ctx: Context) {
         val OStream: FileOutputStream
         // Write list to file in internal storage
         //val outputStream = openFileOutput(FILENAME, Context.MODE_PRIVATE)
-        OStream = comic.openFileOutput(FILENAME,  Context.MODE_PRIVATE)
+        OStream = ctx.openFileOutput(FILENAME,  Context.MODE_PRIVATE)
         writeListToStream(OStream)
     }
 
-    fun readFromFile() {
+    /*fun readFromFile() {
         try {
             // Read in list from file in internal storage
-            val inputStream: FileInputStream = context.openFileInput(FILENAME)
+            val inputStream: FileInputStream = comic.openFileInput(FILENAME)
             val reader = inputStream.bufferedReader()
             comicList.clear()
             reader.forEachLine { comicList.add(ComicCollection(newTitle, series)) }
         } catch (ex: FileNotFoundException) {
             // Ignore
         }
-    }
+    }*/
 
     private fun writeListToStream(outputStream: FileOutputStream) {
         val writer = PrintWriter(outputStream)
