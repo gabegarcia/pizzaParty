@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
-    private var newComic = NewComic()
+    private lateinit var newComic: NewComic
     private var newComicCollection = ComicCollection()
     //private lateinit var itemEditText: EditText
     private lateinit var comicTitle: EditText
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         comicSeries = findViewById(R.id.series)
         listTextView = findViewById(R.id.item_list)
         findViewById<Button>(R.id.add_button).setOnClickListener { addButtonClick() }
-        findViewById<Button>(R.id.clear_button).setOnClickListener { clearButtonClick() }
+       // findViewById<Button>(R.id.clear_button).setOnClickListener { clearButtonClick() }
     }
 
    /* override fun onResume() {
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         super.onPause()
 
         // Save list for later
-        newComicCollection.saveToFile(this)
+       // newComicCollection.saveToFile(this)
     }
 
     private fun addButtonClick() {
@@ -50,19 +50,22 @@ class MainActivity : AppCompatActivity() {
         //val item = itemEditText.text.toString().trim()
 
         title = comicTitle.text.toString()
-        series = comicSeries.text.toString().toInt()
-
-        newComic = NewComic(title, series)
+        //series = comicSeries.text.toString().toInt()
+        newComic = NewComic(title)
+        //newComic = NewComic(title, series)
 
         // Clear the EditText so it's ready for another item
-        comicTitle.setText("")
-        comicSeries.setText("")
-
+       // comicTitle.setText("")
+       // comicSeries.setText("")
+        newComicCollection.addItem(newComic)
         // Add the item to the list and display it
-        if (newComic.title != "No Title" && newComic.newSeries != 0) {
-                newComicCollection.addItem(newComic)
-            displayList()
-        }
+        //if (newComic.title != "No Title" && newComic.newSeries != 0) {
+       //         newComicCollection.addItem(newComic)
+            //displayList()
+       // } else newComicCollection.addItem(NewComic())
+
+
+        displayList()
     }
 
     private fun displayList() {
@@ -76,11 +79,11 @@ class MainActivity : AppCompatActivity() {
             itemText.append(i + 1).append(". ").append(items[i]).append(lineSeparator)
         }
 
-        listTextView.text = itemText.toString()
+        listTextView.text = items[0].toString()
     }
 
-    private fun clearButtonClick() {
-        newComicCollection.clear()
-        displayList()
-    }
+   // private fun clearButtonClick() {
+   //     newComicCollection.clear()
+   //     displayList()
+   // }
 }

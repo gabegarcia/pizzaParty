@@ -20,6 +20,10 @@ class ComicCollection () {
         return Collections.unmodifiableList(comicList)
     }
 
+    override fun toString(): String {
+        return super.toString()
+    }
+
     fun clear() {
         comicList.clear()
     }
