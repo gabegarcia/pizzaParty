@@ -39,7 +39,7 @@ class ComicCollection () {
     /*fun readFromFile() {
         try {
             // Read in list from file in internal storage
-            val inputStream: FileInputStream = comic.openFileInput(FILENAME)
+            val inputStream: FileInputStream = comicList.openFileInput(FILENAME)
             val reader = inputStream.bufferedReader()
             comicList.clear()
             reader.forEachLine { comicList.add(ComicCollection(newTitle, series)) }

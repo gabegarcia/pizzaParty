@@ -17,6 +17,7 @@
         android:textSize="30sp"
         android:hint="@string/enter_title"
         android:autofillHints=""
+        android:nextFocusDown="@+id/series"
         app:layout_constraintRight_toLeftOf="@+id/add_button"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -30,10 +31,11 @@
         android:textSize="30sp"
         android:hint="@string/enter_series_number"
         android:autofillHints=""
+        android:nextFocusDown="@+id/issue_number"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/comic_title" />
 
-  <!--  <EditText
+    <EditText
         android:id="@+id/issue_number"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -42,9 +44,10 @@
         android:textSize="30sp"
         android:hint="@string/enter_issue_number"
         android:autofillHints=""
+        android:nextFocusUp="@id/comic_title"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/series" />
--->
+
    <!-- <EditText
         android:id="@+id/issue_date"
         android:layout_width="0dp"
@@ -87,7 +90,7 @@
         app:layout_constraintBottom_toTopOf="@+id/clear_button"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/comic_title">
+        app:layout_constraintTop_toBottomOf="@+id/issue_number">
 
         <TextView
             android:id="@+id/item_list"
