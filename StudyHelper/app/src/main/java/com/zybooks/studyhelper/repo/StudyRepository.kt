@@ -30,10 +30,10 @@ class StudyRepository private constructor(context: Context) {
     private val subjectDao = database.subjectDao()
     private val questionDao = database.questionDao()
 
-    init {
-        if (subjectDao.getSubjects().isEmpty()) {
+    init {addStarterData()
+        /*if (subjectDao.getSubjects().isEmpty()) {
             addStarterData()
-        }
+        }*/
     }
 
     fun getSubject(subjectId: Long): LiveData<Subject?> = subjectDao.getSubject(subjectId)

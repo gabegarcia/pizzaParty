@@ -21,7 +21,7 @@ import com.google.android.material.snackbar.Snackbar
 
 class QuestionActivity : AppCompatActivity() {
 
-    private lateinit var questionListViewModel: QuestionListViewModel
+    //private lateinit var questionListViewModel: QuestionListViewModel
     private lateinit var subject: Subject
     private lateinit var questionList: List<Question>
     private lateinit var answerLabelTextView: TextView

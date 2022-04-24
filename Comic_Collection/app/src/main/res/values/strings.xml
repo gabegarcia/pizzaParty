@@ -7,4 +7,10 @@
     <string name="enter_issue_date">Enter Issue Date</string>
     <string name="enter_issue_cost">Enter Issue Cost</string>
     <string name="clear">Clear</string>
+    <string name="display">Display List</string>
+    <string name="warning">Add this Comic?</string>
+    <string name="warning_message">Do you want to add this comic</string>
+    <string name="ok">Ok</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

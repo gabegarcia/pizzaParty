@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Gabe Garcia/AndroidStudioProjects/Comic_Collection/app/src/main/res/layout/activity_main.xml" value="0.27898550724637683" />
+        <entry key="..\:/Users/Gabe Garcia/AndroidStudioProjects/Comic_Collection/app/src/main/res/layout/alert_content.xml" value="0.1" />
+        <entry key="..\:/Users/Gabe Garcia/AndroidStudioProjects/Comic_Collection/app/src/main/res/layout/fragment_comic_.xml" value="0.11594202898550725" />
         <entry key="..\:/Users/Gabe Garcia/AndroidStudioProjects/Comic_Collection/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1315" />
       </map>
     </option>

@@ -1,23 +1,29 @@
 package com.zybooks.comic_collection
 
 //import ComicCollection
+import android.app.AlertDialog
+import android.app.Dialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.DialogFragment
+
+
+private lateinit var newComic: NewComic
+private var newComicCollection = ComicCollection()
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var newComic: NewComic
-    private var newComicCollection = ComicCollection()
-    //private lateinit var itemEditText: EditText
+
     private lateinit var comicTitle: EditText
     private lateinit var seriesNumber: EditText
     private lateinit var issueNumber: EditText
     private lateinit var listTextView: TextView
-    private var series: Int  = 0
+    private var series: Int = 0
     lateinit var title: String
-    private  var issue: Int = 0
+    private var issue: Int = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,10 +35,12 @@ class MainActivity : AppCompatActivity() {
         issueNumber = findViewById(R.id.issue_number)
         listTextView = findViewById(R.id.item_list)
         findViewById<Button>(R.id.add_button).setOnClickListener { addButtonClick() }
-        findViewById<Button>(R.id.clear_button).setOnClickListener { clearButtonClick() }
+
+        findViewById<Button>(R.id.display_button).setOnClickListener { displayList() }
+
     }
 
-   /* override fun onResume() {
+    /* override fun onResume() {
         super.onResume()
 
         // Attempt to load a previously saved list
@@ -44,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         super.onPause()
 
         // Save list for later
-       // newComicCollection.saveToFile(this)
+        // newComicCollection.saveToFile(this)
     }
 
     private fun addButtonClick() {
@@ -59,19 +67,26 @@ class MainActivity : AppCompatActivity() {
         //newComic = NewComic(title, series)
 
         // Clear the EditText so it's ready for another item
-       comicTitle.setText("")
-       seriesNumber.setText("")
+        comicTitle.setText("")
+        seriesNumber.setText("")
         issueNumber.setText("")
 
         // Add the item to the list and display it
-        newComicCollection.addItem(newComic)
+        //newComicCollection.addItem(newComic)
 
         //if (newComic.title != "No Title" && newComic.newSeries != 0) {
-       //         newComicCollection.addItem(newComic)
-            //displayList()
-       // } else newComicCollection.addItem(NewComic())
+        //         newComicCollection.addItem(newComic)
+        //displayList()
+        // } else newComicCollection.addItem(NewComic())
+
+        val dialog = Alert1()
+        dialog.show(supportFragmentManager, "warningDialog")
 
 
+    }
+
+     fun addComicToList() {
+        newComicCollection.addItem(newComic)
         displayList()
     }
 
@@ -83,14 +98,47 @@ class MainActivity : AppCompatActivity() {
         val lineSeparator = System.getProperty("line.separator")
 
         for (i in items.indices) {
-            itemText.append("Series: ").append(items[i].seriesNumber).append(lineSeparator).append("Title: ").append(items[i].title).append(lineSeparator).append("Issue: ").append(items[i].issueNumber).append(" ").append(lineSeparator)
+            itemText.append("Series: ").append(items[i].seriesNumber).append(lineSeparator)
+                .append("Title: ").append(items[i].title).append(lineSeparator).append("Issue: ")
+                .append(items[i].issueNumber).append(" ").append(lineSeparator)
         }
 
         listTextView.text = itemText.toString()
     }
 
-   private fun clearButtonClick() {
+    private fun clearButtonClick() {
+        //val dialog = Alert1()
+        //dialog.show(supportFragmentManager, "warningDialog")
+
         newComicCollection.clear()
         displayList()
     }
 }
+
+class Alert1 : DialogFragment(){
+
+    override fun onCreateDialog(savedInstanceState: Bundle?)
+            : Dialog {
+        val builder = AlertDialog.Builder(requireActivity())
+        builder.setTitle(R.string.warning)
+        builder.setMessage(R.string.warning_message)
+        builder.setPositiveButton(R.string.ok, DialogInterface.OnClickListener { dialog, id ->
+            // User clicked OK button
+            newComicCollection.addItem(newComic)
+
+
+        })
+        /* builder.setNegativeButton("No", DialogInterface.OnClickListener { dialog, id ->
+         comicTitle.setText("")
+         seriesNumber.setText("")
+         issueNumber.setText("")
+     })*/
+
+
+        return builder.create()
+    }
+
+
+}
+
+
