@@ -4,30 +4,56 @@ import android.content.Context
 import java.io.*
 import java.util.*
 
+/**
+ * global variable
+ */
 const val FILENAME = "MyComicCollection.txt"
 
+/**
+ * ComicCollection class
+ */
 class ComicCollection () {
 
-   // var comic: NewComic = myNewComic
+    /**
+     * list of type NewComic
+     */
 
     private var comicList: MutableList<NewComic> = mutableListOf()
 
+    /**
+     * addItem function
+     * add a NewComic to comicList
+     */
     fun addItem(myNewComic: NewComic) {
         comicList.add(myNewComic)
     }
 
+    /**
+     * getter
+     */
     fun getItems(): List<NewComic> {
         return Collections.unmodifiableList(comicList)
     }
 
+    /**
+     * override toString()
+     */
     override fun toString(): String {
         return super.toString()
     }
 
+    /**
+     * clear function
+     * clear comicList
+     */
     fun clear() {
         comicList.clear()
     }
 
+    /**
+     * saveToFile function
+     * attempting to store comicList in a text file
+     */
     fun saveToFile(ctx: Context) {
         val OStream: FileOutputStream
         // Write list to file in internal storage
@@ -36,6 +62,10 @@ class ComicCollection () {
         writeListToStream(OStream)
     }
 
+    /**
+     * readFromFile function
+     * attempting to read from local file
+     */
     /*fun readFromFile() {
         try {
             // Read in list from file in internal storage
@@ -48,6 +78,10 @@ class ComicCollection () {
         }
     }*/
 
+    /**
+     * writeListToStream function
+     * attempting to print data from file
+     */
     private fun writeListToStream(outputStream: FileOutputStream) {
         val writer = PrintWriter(outputStream)
         for (item in comicList) {

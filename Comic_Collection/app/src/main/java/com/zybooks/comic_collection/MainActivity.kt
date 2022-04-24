@@ -11,11 +11,21 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
 
-
+/**
+ * global variables
+ */
 private lateinit var newComic: NewComic
 private var newComicCollection = ComicCollection()
 
+/**
+ * MainActivity class
+ */
+
 class MainActivity : AppCompatActivity() {
+
+    /**
+     * local variables
+     */
 
     private lateinit var comicTitle: EditText
     private lateinit var seriesNumber: EditText
@@ -25,21 +35,33 @@ class MainActivity : AppCompatActivity() {
     lateinit var title: String
     private var issue: Int = 0
 
-
+    /**
+     * onCreate function
+     * calls layout.activity_main
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        /**
+         * instantiate variables from fields
+         */
         comicTitle = findViewById(R.id.comic_title)
         seriesNumber = findViewById(R.id.series)
         issueNumber = findViewById(R.id.issue_number)
         listTextView = findViewById(R.id.item_list)
-        findViewById<Button>(R.id.add_button).setOnClickListener { addButtonClick() }
 
+        /**
+         * onclick listeners
+         */
+        findViewById<Button>(R.id.add_button).setOnClickListener { addButtonClick() }
         findViewById<Button>(R.id.display_button).setOnClickListener { displayList() }
 
     }
 
+    /**
+     * unused function
+     */
     /* override fun onResume() {
         super.onResume()
 
@@ -55,6 +77,12 @@ class MainActivity : AppCompatActivity() {
         // newComicCollection.saveToFile(this)
     }
 
+    /**
+     * addButtonCLick function
+     * convert EditText values to string
+     * clear EditText fields
+     * activate alert
+     */
     private fun addButtonClick() {
 
         // Ignore any leading or trailing spaces
@@ -90,6 +118,12 @@ class MainActivity : AppCompatActivity() {
         displayList()
     }
 
+    /**
+     * displayList function
+     * populate items with objects from newComicCollection
+     * iterate through items
+     * populate listTextView to display items
+     */
     private fun displayList() {
 
         // Display a numbered list of items
@@ -115,6 +149,11 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
+/**
+ * Alert1 class
+ * displays an alert
+ * prompts user to confirm adding a new NewComic
+ */
 class Alert1 : DialogFragment(){
 
     override fun onCreateDialog(savedInstanceState: Bundle?)

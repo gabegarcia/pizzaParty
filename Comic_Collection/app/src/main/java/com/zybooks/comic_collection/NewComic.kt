@@ -4,8 +4,14 @@ import android.content.Context
 import android.widget.TextView
 import java.io.*
 
+/**
+ * NewComic class
+ */
 class NewComic(var newTitle: String, var newSeriesNumber: Int, var newIssueNumber: Int) {
 
+    /**
+     * setters
+     */
     var title: String = newTitle
         set(value){
             field = value
@@ -21,6 +27,9 @@ class NewComic(var newTitle: String, var newSeriesNumber: Int, var newIssueNumbe
             field = value
         }
 
+    /**
+     * override toString
+     */
     override fun toString(): String {
         return this.title
     }
