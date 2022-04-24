@@ -10,6 +10,9 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentContainer
+import com.zybooks.comic_collection.databinding.ActivityMainBinding
 
 /**
  * global variables
@@ -26,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     /**
      * local variables
      */
-
+    lateinit var binding: ActivityMainBinding
     private lateinit var comicTitle: EditText
     private lateinit var seriesNumber: EditText
     private lateinit var issueNumber: EditText
@@ -41,7 +44,16 @@ class MainActivity : AppCompatActivity() {
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        //setContentView(R.layout.activity_main)
+        setContentView(binding.root)
+
+        binding.fragmentButton.setOnClickListener{
+
+            replaceFragment(ShowComics())
+        }
+
+
 
         /**
          * instantiate variables from fields
@@ -59,6 +71,14 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private fun replaceFragment(fragment: Fragment){
+
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+
+        fragmentTransaction.replace(R.id.fragment_container_view, fragment)
+        fragmentTransaction.commit()
+    }
     /**
      * unused function
      */

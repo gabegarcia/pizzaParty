@@ -7,7 +7,7 @@ import java.io.*
 /**
  * NewComic class
  */
-class NewComic(var newTitle: String, var newSeriesNumber: Int, var newIssueNumber: Int) {
+open class NewComic(var newTitle: String, var newSeriesNumber: Int, var newIssueNumber: Int) {
 
     /**
      * setters

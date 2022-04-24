@@ -12,13 +12,24 @@ const val FILENAME = "MyComicCollection.txt"
 /**
  * ComicCollection class
  */
-class ComicCollection () {
+open class ComicCollection () {
 
     /**
      * list of type NewComic
      */
 
-    private var comicList: MutableList<NewComic> = mutableListOf()
+    var comicList: MutableList<NewComic> = mutableListOf()
+
+    companion object {
+        private var instance: ComicCollection? = null
+
+        fun getInstance(context: Context): ComicCollection {
+            if (instance == null) {
+                instance = ComicCollection()
+            }
+            return instance!!
+        }
+    }
 
     /**
      * addItem function
